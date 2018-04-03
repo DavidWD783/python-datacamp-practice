@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 import scipy.io 
 
 # Import dataset from url
-# from urllib.request import urlretrieve
-# url = 'https://assets.datacamp.com/production/course_2023/datasets/tips.csv'
-# urlretrieve(url, 'tips2.csv')
-file = 'tips2.csv'
+from urllib.request import urlretrieve
+url = 'https://assets.datacamp.com/production/course_2023/datasets/tips.csv'
+# urlretrieve(url, 'tips.csv')
+# file = 'tips.csv'
 
 # # Use BeautifulSoup to print html of dataset
 # from bs4 import BeautifulSoup
@@ -20,7 +20,7 @@ file = 'tips2.csv'
 # print(soup.prettify())
 
 # Create DataFrame
-df = pd.read_csv(file, sep = ',', dtype=None, low_memory = False)
+df = pd.read_csv(url, sep = ',', dtype=None, low_memory = False)
 print(df.head())
 # print(df.tail())
 # print(df.info())
