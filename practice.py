@@ -13,22 +13,34 @@ import scipy.io
 # print(df)
 
 # Create DataFrame using zip of lists
-names = ['One', 'Two', 'Three', 'Four']
+# names = ['One', 'Two', 'Three', 'Four']
 
-dates = [0, 1, 2, 3]
+# dates = [0, 1, 2, 3]
 
-ages = [20, 30, 40, 50]
+# ages = [20, 30, 40, 50]
 
-places = ['City', 'Country', 'Suburb', 'Desert']
+# places = ['City', 'Country', 'Suburb', 'Desert']
 
-list_labels = ['Name', 'Date', 'Age', 'Location']
+# list_labels = ['Name', 'Date', 'Age', 'Location']
 
-list_cols = [names, dates, ages, places]
+# list_cols = [names, dates, ages, places]
 
-zipped = list(zip(list_labels, list_cols))
-# print(zipped)
+# zipped = list(zip(list_labels, list_cols))
+# # print(zipped)
 
-data = dict(zipped)
+# data = dict(zipped)
+
+# df = pd.DataFrame(data)
+# print(df.columns)
+# print(df.index)
+# print(df)
+
+# Create DataFrame from list using key/value pairs
+cities = ['Manheim', 'Preston park', 'Biglerville', 'Indiana', 'Curwensville', 'Crown', 'Harveys lake', 'Mineral springs', 'Cassville', 'Hannastown', 'Saltsburg', 'Tunkhannock', 'Pittsburgh', 'Lemasters', 'Great bend']
+
+state = 'PA'
+
+data = {'state': state, 'city': cities}
 
 df = pd.DataFrame(data)
-print(df)
+print(df.head())
