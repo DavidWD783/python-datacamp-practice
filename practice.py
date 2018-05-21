@@ -35,12 +35,58 @@ import scipy.io
 # print(df.index)
 # print(df)
 
-# Create DataFrame from list using key/value pairs
-cities = ['Manheim', 'Preston park', 'Biglerville', 'Indiana', 'Curwensville', 'Crown', 'Harveys lake', 'Mineral springs', 'Cassville', 'Hannastown', 'Saltsburg', 'Tunkhannock', 'Pittsburgh', 'Lemasters', 'Great bend']
+# # Create DataFrame from list using key/value pairs
+# cities = ['Manheim', 'Preston park', 'Biglerville', 'Indiana', 'Curwensville', 'Crown', 'Harveys lake', 'Mineral springs', 'Cassville', 'Hannastown', 'Saltsburg', 'Tunkhannock', 'Pittsburgh', 'Lemasters', 'Great bend']
 
-state = 'PA'
+# state = 'PA'
 
-data = {'state': state, 'city': cities}
+# data = {'state': state, 'city': cities}
 
-df = pd.DataFrame(data)
-print(df.head())
+# df = pd.DataFrame(data)
+# print(df.head())
+
+# Import dataset from url
+from urllib.request import urlretrieve
+url = 'https://assets.datacamp.com/production/course_1639/datasets/weather_data_austin_2010.csv'
+# urlretrieve(url, 'dob.csv')
+# file = 'dob.csv'
+
+# Inspect file
+df = pd.read_csv(url, index_col = 3, parse_dates=[3])
+# df.index = df['Date']
+print(df.head(5))
+# print(df.info())
+
+# Setup plots for/from DataFrame
+temp = df['Temperature']
+# graph = plt.plot(temp)
+# plt.show()
+
+# Plot DataFrame
+plot_list = df.iloc[:, 0:2]
+plot_list.plot(subplots=True)
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
