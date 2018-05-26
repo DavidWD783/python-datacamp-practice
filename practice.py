@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np 
 import matplotlib.pyplot as plt
 import scipy.io 
+import datetime
+import re
 
 # Create dict d
 # d = {'a': [1], 'b': [2]}
@@ -53,10 +55,19 @@ url = 'https://assets.datacamp.com/production/course_1639/datasets/austin_airpor
 # file = 'dob.csv'
 
 # Inspect file
-df = pd.read_csv(url, sep=',', skiprows=12, delimiter=',', parse_dates=True, index_col='Date (MM/DD/YYYY)')
-print(df.head(2))
-print(df.info())
+df = pd.read_csv(url, sep=',', skiprows=12, delimiter=',', parse_dates=False, index_col='Date (MM/DD/YYYY)')
+# print(df.head(2))
+# print(df.info())
+time_format = '%Y-%m-%d'
+col = df.index.astype(str)
+# print(type(col[0]))
 
+[lambda x: re.sub(r'\D', '', col[x])]
+# new_col = re.sub(r'\D', '', col)
+print(col[0])
+new_col = pd.to_datetime(col, format=time_format)
+print(new_col[0])
+print(df.head(2))
 
 # Setup plots for/from DataFrame
 # temp = df['Temperature']
