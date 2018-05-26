@@ -47,25 +47,26 @@ import scipy.io
 
 # Import dataset from url
 from urllib.request import urlretrieve
-url = 'https://assets.datacamp.com/production/course_1639/datasets/weather_data_austin_2010.csv'
+# url = 'https://assets.datacamp.com/production/course_1639/datasets/weather_data_austin_2010.csv'
+url = 'https://assets.datacamp.com/production/course_1639/datasets/austin_airport_departure_data_2015_july.csv'
 # urlretrieve(url, 'dob.csv')
 # file = 'dob.csv'
 
 # Inspect file
-df = pd.read_csv(url, index_col = 3, parse_dates=[3])
-# df.index = df['Date']
-print(df.head(5))
-# print(df.info())
+df = pd.read_csv(url, sep=',', skiprows=12, delimiter=',', parse_dates=True, index_col='Date (MM/DD/YYYY)')
+print(df.head(2))
+print(df.info())
+
 
 # Setup plots for/from DataFrame
-temp = df['Temperature']
+# temp = df['Temperature']
 # graph = plt.plot(temp)
 # plt.show()
 
 # Plot DataFrame
-plot_list = df.iloc[:, 0:2]
-plot_list.plot(subplots=True)
-plt.show()
+# plot_list = df.iloc[:, 0:2]
+# plot_list.plot(subplots=True)
+# plt.show()
 
 
 
