@@ -56,6 +56,7 @@ url = 'https://assets.datacamp.com/production/course_1639/datasets/austin_airpor
 
 # Inspect file
 df = pd.read_csv(url, sep=',', skiprows=12, delimiter=',', parse_dates=True, index_col='Date (MM/DD/YYYY)')
+df.index.rename('Date', inplace=True)
 print(df.head(2))
 print(df.info())
 
