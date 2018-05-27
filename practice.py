@@ -59,6 +59,11 @@ df = pd.read_csv(url, sep=',', skiprows=12, delimiter=',', parse_dates=True, ind
 df.index.rename('Date', inplace=True)
 print(df.head(2))
 print(df.info())
+print(df.columns)
+
+# Compute difference between 'Scheduled Departure Time(Minutes)' and 'Actual Departure Time'
+df['Diff_Time'] = df['Scheduled Departure Time'].as_type(int64) - df['Actual Departure Time'].as_type(int64)
+print(df.head(2))
 
 # Setup plots for/from DataFrame
 # temp = df['Temperature']
