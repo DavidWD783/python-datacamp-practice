@@ -57,9 +57,15 @@ url = 'https://assets.datacamp.com/production/course_1639/datasets/austin_airpor
 # Inspect file
 df = pd.read_csv(url, sep=',', skiprows=12, delimiter=',', parse_dates=True, index_col='Date (MM/DD/YYYY)')
 df.index.rename('Date', inplace=True)
-print(df.head(2))
-print(df.info())
-print(df.columns)
+# print(df.head(2))
+# print(df.info())
+# print(df.columns)
+
+# Inspect 'Scheduled Elapsed Time(Minutes)'
+print(df['Scheduled Elapsed Time(Minutes)'][0:5])
+df.plot(kind='hist', y='Scheduled Elapsed Time(Minutes)', bins=20)
+plt.show()
+
 
 # Setup plots for/from DataFrame
 # temp = df['Temperature']
