@@ -61,10 +61,10 @@ df.index.rename('Date', inplace=True)
 # print(df.info())
 # print(df.columns)
 
-# Inspect 'Scheduled Elapsed Time(Minutes)'
-print(df['Scheduled Elapsed Time(Minutes)'][0:5])
-df.plot(kind='hist', y='Scheduled Elapsed Time(Minutes)', bins=20)
-plt.show()
+# # Inspect 'Scheduled Elapsed Time(Minutes)'
+# print(df['Scheduled Elapsed Time(Minutes)'][0:5])
+# df.plot(kind='hist', y='Scheduled Elapsed Time(Minutes)', bins=20)
+# plt.show()
 
 
 # Setup plots for/from DataFrame
