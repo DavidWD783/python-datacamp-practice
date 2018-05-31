@@ -49,17 +49,23 @@ import re
 
 # Import dataset from url
 from urllib.request import urlretrieve
-# url = 'https://assets.datacamp.com/production/course_1639/datasets/weather_data_austin_2010.csv'
-url = 'https://assets.datacamp.com/production/course_1639/datasets/austin_airport_departure_data_2015_july.csv'
+url = 'https://assets.datacamp.com/production/course_1639/datasets/weather_data_austin_2010.csv'
+# url = 'https://assets.datacamp.com/production/course_1639/datasets/austin_airport_departure_data_2015_july.csv'
+# url = 'https://assets.datacamp.com/production/course_1639/datasets/NOAA_QCLCD_2011_hourly_13904.txt'
 # urlretrieve(url, 'dob.csv')
 # file = 'dob.csv'
 
 # Inspect file
-df = pd.read_csv(url, sep=',', skiprows=12, delimiter=',', parse_dates=True, index_col='Date (MM/DD/YYYY)')
-df.index.rename('Date', inplace=True)
+df = pd.read_csv(url, sep=',', skiprows=0, delimiter=',', parse_dates=True, index_col='Date')
+# df.index.rename('Date', inplace=True)
 # print(df.head(2))
 # print(df.info())
 # print(df.columns)
+
+df_temp = df.resample('D').mean()
+print(df_temp.head(2))
+df1 = df_temp.loc['2010-01-01':'2010-01-08'].plot(style='b.-', subplots=True)
+plt.show()
 
 # # Inspect 'Scheduled Elapsed Time(Minutes)'
 # print(df['Scheduled Elapsed Time(Minutes)'][0:5])
